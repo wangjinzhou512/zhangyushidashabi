@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱心雨效果</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f8ff;
+            overflow: hidden;
+        }
+
+        h1 {
+            position: absolute;
+            color: #333;
+            font-size: 48px;
+        }
+
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 24px;
+            animation: fall 5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -50px;
+                opacity: 1;
+            }
+            100% {
+                top: 100vh;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>张雨是大傻逼</h1>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
